@@ -1,5 +1,30 @@
 "use strict";
 
+
+
+
+
+var url_str = window.location.href;
+var url = new URL(url_str);
+var api_key = url.searchParams.get("api_key");
+
+if(typeof(api_key)==undefined || api_key==""|| api_key==null){
+    $("body").find("#main_data").html("<style> "+
+    " .center-screen {" +
+    " display: flex;" +
+    " justify-content: center;" +
+    " align-items: center;"+
+    "text-align: center;"+
+    " min-height: 100vh; }"+
+    "</style>"+
+        "<div class='center-screen'>"+
+            "<h1> Access Denied | 403</h1> </div>");
+ 
+        
+}
+
+
+
 importJsOnce("js/viewers/meta/Viewer.js");
 importJsOnce("js/viewers/meta/Space2DViewer.js");
 importJsOnce("js/viewers/meta/Space3DViewer.js");
@@ -89,7 +114,7 @@ let onOpen = function() {
 let onSystem = function(system) {
   if(system.hostname) {
     console.log("hostname: " + system.hostname);
-    $('.mdl-layout-title').text("ROSboard: " + system.hostname);
+    //$('.mdl-layout-title').text("ROSboard: " + system.hostname);
   }
 
   if(system.version) {
@@ -291,3 +316,4 @@ Viewer.onSwitchViewer = (viewerInstance, newViewerType) => {
   delete(subscriptions[topicName].viewer);
   subscriptions[topicName].viewer = new newViewerType(card, topicName, topicType);
 };
+
