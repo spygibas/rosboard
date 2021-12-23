@@ -1,7 +1,6 @@
 # ROSboard 
 
 ROS node that runs a web server on your robot.
-Run the node, point your web browser at http://your-robot-ip:8888/ and you get nice visualizations.
 
 **ROS1/ROS2 compatible.** This package will work in either ROS version.
 
@@ -9,7 +8,7 @@ Run the node, point your web browser at http://your-robot-ip:8888/ and you get n
 
 **Light weight.** Doesn't depending on much. Consumes extremely little resources when it's not actually being used.
 
-**Easily extensible.** Easily code a visualization for a custom type by only adding only one .js file [here](https://github.com/dheera/rosboard/tree/main/rosboard/html/js/viewers) and referncing it inside the top of [index.js](https://github.com/dheera/rosboard/blob/main/rosboard/html/js/index.js).
+**Easily extensible.** Easily code a visualization for a custom type by only adding only one .js file [here](https://github.com/spygibas/rosboard/tree/main/rosboard/html/js/viewers) and referncing it inside the top of [index.js](https://github.com/spygibas/rosboard/blob/main/rosboard/html/js/index.js).
 
 You can run it on your desktop too and play a ROS bag.
 
@@ -36,7 +35,6 @@ source /opt/ros/YOUR_ROS1_OR_ROS2_DISTRO/setup.bash
 ./run
 ```
 
-Point your web browser at http://localhost:8888 (or replace localhost with your robot's IP) and you're good to go.
 
 ## Installing it as a ROS package
 
@@ -50,7 +48,7 @@ For ROS 2, run it with `ros2 run rosboard rosboard_node` or put it in your launc
 
 **How do I write a visualizer for a custom type?**
 
-Just add a new viewer class that inherits from Viewer, following the examples of the [default viewers](https://github.com/dheera/rosboard/tree/master/rosboard/html/js/viewers). Then add it to the imports at the top of [index.js](https://github.com/dheera/rosboard/blob/master/rosboard/html/js/index.js) and you're done.
+Just add a new viewer class that inherits from Viewer, following the examples of the [default viewers](https://github.com/spygibas/rosboard/tree/master/rosboard/html/js/viewers). Then add it to the imports at the top of [index.js](https://github.com/spygibas/rosboard/blob/master/rosboard/html/js/index.js) and you're done.
 
 **How does this work in both ROS1 and ROS2?**
 
